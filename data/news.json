@@ -7,6 +7,12 @@
         "date": "5 มี.ค. 2026",
         "readTime": "3 นาที",
         "content": "<p><strong>🎉 อัปเดตใหม่!</strong> OpenClaw เวอร์ชัน 2026.3.2</p><p><strong>📄 PDF Analysis Tool</strong><br>วิเคราะห์ PDF ได้เลย!</p>"
+      },
+      {
+        "title": "OpenClaw Roles: Jarvis, Atlas, Forge, Sentinel",
+        "date": "4 มี.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>🤝 ระบบ 5 บทบาท:</strong></p><p>• <strong>Jarvis</strong> - ผู้จัดการ</p><p>• <strong>Atlas</strong> - วางแผนยุทธศาสตร์</p><p>• <strong>Forge</strong> - เขียนสคริปต์</p><p>• <strong>Sentinel</strong> - ตรวจสอบ QA</p><p>• <strong>JIU</strong> - ข้อมูลตลาด</p>"
       }
     ],
     "ai": [
@@ -17,32 +23,76 @@
         "content": "<p><strong>🤖 Minimax</strong> เป็นโมเดล AI ที่ Jarvis ใช้ทำงานทุกวัน</p><p><strong>💡 ข้อดี</strong>:<br>• ราคาถูกกว่า Claude/GPT<br>• รองรับภาษาไทยดี<br>• เร็วและประหยัด Token</p><p><strong>📊 เวอร์ชัน</strong>:<br>• M2.1 - งานเขียนโค้ด/วิเคราะห์<br>• M2.5 - งานทั่วไป (เร็ว)</p>"
       },
       {
+        "title": "Model Tiering: CORE vs Jarvis",
+        "date": "2 มี.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>🎯 แบ่งโมเดลตามหน้าที่:</strong></p><p>• <strong>CORE</strong>: Claude Sonnet 4.6 (Thinking Medium) - วางแผนยุทธศาสตร์</p><p>• <strong>Jarvis/JIU</strong>: Gemini Flash - ความเร็ว + ประหยัด Token</p>"
+      },
+      {
         "title": "AI Agents กลายเป็นเทรนด์หลัก 2026",
         "date": "05 ม.ค. 2026",
         "readTime": "3 นาที",
         "content": "<p><strong>🤖 AI Agents</strong> กำลังมาแรง! หลายบริษัทเริ่มใช้ AI ทำงานแทนมนุษย์มากขึ้น</p><p><strong>💡 ตัวอย่าง</strong>:<br>• สั่งให้หาข่าวและสรุป<br>• ทำรายงานอัตโนมัติ<br>• ตอบอีเมลแทน</p>"
-      },
-      {
-        "title": "OpenClaw อัปเดต v2026.3.2",
-        "date": "05 ม.ค. 2026",
-        "readTime": "2 นาที",
-        "content": "<p><strong>🎉 ฟีเจอร์ใหม่</strong>:<br>• PDF Analysis Tool<br>• 150+ Bug Fixes<br>• Secrets/SecretRef 64 targets</p>"
       }
     ],
     "tech": [
       {
-        "title": "Windows Server 2022 vs Windows 10",
-        "date": "05 ม.ค. 2026",
+        "title": "Windows Server 2022 + MT5 + FTMO",
+        "date": "5 มี.ค. 2026",
         "readTime": "3 นาที",
-        "content": "<p><strong>🖥️ Server 2022</strong> - เสถียรสูง รัน 24/7</p><p><strong>🖥️ Windows 10/11</strong> - ใช้ง่าย ถูกกว่า</p>"
+        "content": "<p><strong>✅ ใช้ได้!</strong><br>Server 2022 รัน MT5 เทรด FTMO ได้</p><p><strong>📋 ความต้องการ</strong><br>• Windows 10/11/Server 2019/2022 (64-bit)<br>• RAM 4GB+, 2 cores</p><p><strong>🖥️ เหมาะสำหรับ</strong>: รัน 24/7</p>"
+      },
+      {
+        "title": "WSL Chromium Limitation",
+        "date": "2 มี.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>⚠️ ปัญหา:</strong> ติดตั้ง Chromium บน WSL ผ่าน snap ไม่เสถียร</p><p><strong>✅ แก้ไข:</strong> ใช้ web_fetch และ web_search แทน</p><p><strong>💡 ข้อดี:</strong> เบากว่า, เสถียรกว่า</p>"
       }
     ],
     "trading": [
       {
-        "title": "Windows Server + MT5 + FTMO",
-        "date": "05 ม.ค. 2026",
-        "readTime": "4 นาที",
-        "content": "<p><strong>✅ ใช้ได้!</strong><br>Server 2022 รัน MT5 เทรด FTMO ได้</p><p><strong>📋 ความต้องการ</strong><br>• Windows 10/11/Server 2019/2022<br>• RAM 4GB+</p>"
+        "title": "XAUUSD Gold Analysis - มี.ค. 2026",
+        "date": "4 มี.ค. 2026",
+        "readTime": "3 นาที",
+        "content": "<p><strong>📊 Gold (XAUUSD)</strong>:<br>• ราคาปัจจุบัน: ~$5,198</p><p><strong>📍 Support Zone</strong>: 5,101-5,069</p><p><strong>📈 Trend</strong>: Short-term uptrend intact</p><p><strong>🏦 Fed Rate</strong>: 3.75%</p>"
+      },
+      {
+        "title": "US-Iran Conflict + Gold Surge",
+        "date": "2 มี.ค. 2026",
+        "readTime": "3 นาที",
+        "content": "<p><strong>⚡ ข่าวสำคัญ:</strong> ความขัดแย้ง US-Iran ทวีความรุนแรง</p><p><strong>📈 ผลกระทบ:</strong><br>• Gold พุ่ง $100 ในชั่วโมงเดียว<br>• XAUUSD ขึ้นไปถึง $5,351<br>• Safe haven demand เพิ่มสูง</p>"
+      },
+      {
+        "title": "สอนเทรดน้องหมิว (ตารางใหม่)",
+        "date": "4 มี.ค. 2026",
+        "readTime": "1 นาที",
+        "content": "<p><strong>📅 ตารางเรียน:</strong><br>• จันทร์/พุธ/ศุกร์ 12:00-13:00</p><p><strong>📆 วัน:</strong> 6, 9, 11, 13, 16, 18, 20 มี.ค.</p>"
+      }
+    ],
+    "system": [
+      {
+        "title": "CORE Authority Protocol",
+        "date": "2 มี.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>🔧 กฎใหม่:</strong> กรณี Jarvis/JIU ติดขัดทางเทคนิคหรือแก้โค้ดไม่ได้ ให้ส่งต่อให้ CORE มีอำนาจตัดสินใจสูงสุด</p>"
+      },
+      {
+        "title": "กฎ 3 ครั้งหยุด (Max 2 Retries)",
+        "date": "2 มี.ค. 2026",
+        "readTime": "1 นาที",
+        "content": "<p><strong>⚠️ ทำภารกิจล้มเหลว</strong> = ลองใหม่ได้รวม 3 ครั้ง</p><p><strong>🛑 ยังไม่สำเร็จ</strong> = หยุดทันทีและรายงาน หรือส่งต่อให้ CORE</p>"
+      },
+      {
+        "title": "Backup Policy อัปเดต",
+        "date": "2 มี.ค. 2026",
+        "readTime": "1 นาที",
+        "content": "<p><strong>📅 Backup ทุก 2 วัน</strong><br>เวลา 03:00 น.</p><p><strong>📧 ส่งอีเมลแจ้ง:</strong> bass1135@gmail.com</p><p><strong>💾 สถานที่เก็บ:</strong> C:\\Users\\Administrator\\Desktop\\OpenClaw_Backups\\</p>"
+      },
+      {
+        "title": "Jarvis Task Tracker (Google Sheets)",
+        "date": "4 มี.ค. 2026",
+        "readTime": "1 นาที",
+        "content": "<p><strong>📊 สร้าง Google Sheet ใหม่</strong><br>สำหรับติดตามงานและการประชุม</p><p><strong>📑 Tabs:</strong> Summary, In Progress, Completed</p>"
       }
     ]
   }

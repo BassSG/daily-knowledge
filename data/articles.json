@@ -12,9 +12,14 @@
         "content": "<p>Minimax เป็นโมเดล AI ที่ Jarvis ใช้ทำงาน</p><p>ข้อดี: ราคาถูก, เร็ว, รองรับภาษาไทยดี</p><p>เวอร์ชัน: M2.1 (เขียนโค้ด) และ M2.5 (งานทั่วไป)</p>"
       },
       {
-        "title": "วิธีใช้ Minimax Models",
+        "title": "OpenClaw Roles: Jarvis, Atlas, Forge, Sentinel, JIU",
         "date": "4 มี.ค. 2026",
-        "content": "<p>Minimax เป็นโมเดล AI ที่ Jarvis ใช้ทำงาน</p><p>ข้อดี: ราคาถูก, เร็ว, รองรับภาษาไทยดี</p>"
+        "content": "<p><strong>Jarvis</strong> - ผู้จัดการ, ตัดสินใจ</p><p><strong>Atlas</strong> - วางแผนยุทธศาสตร์</p><p><strong>Forge</strong> - เขียนสคริปต์</p><p><strong>Sentinel</strong> - ตรวจสอบคุณภาพ</p><p><strong>JIU</strong> - ข้อมูลตลาด</p>"
+      },
+      {
+        "title": "Market Update Scripts ใหม่",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>สร้างสคริปต์อัปเดตตลาด 4 ตัว:</p><p>- morning_brief.py (เช้า)</p><p>- midday_insight.py (เที่ยง)</p><p>- news_focus.py (ข่าว)</p><p>- evening_wrap.py (เย็น)</p>"
       }
     ],
     "ai": [
@@ -27,13 +32,23 @@
         "title": "Claude vs GPT vs Gemini",
         "date": "3 มี.ค. 2026",
         "content": "<p>Claude - เน้นความปลอดภัย</p><p>GPT - เน้น general purpose</p><p>Gemini - เน้น multimodal</p>"
+      },
+      {
+        "title": "Model Tiering: CORE vs Jarvis",
+        "date": "2 มี.ค. 2026",
+        "content": "<p><strong>CORE</strong>: Claude Sonnet 4.6 (Thinking Medium) - วางแผนยุทธศาสตร์</p><p><strong>Jarvis/JIU</strong>: Gemini Flash - ความเร็ว + ประหยัด Token</p>"
       }
     ],
     "tech": [
       {
-        "title": "Windows Server 2022 vs Windows 10",
-        "date": "4 มี.ค. 2026",
-        "content": "<p>Server 2022 เหมาะกับการรัน 24/7</p><p>Windows 10 เหมาะกับใช้งานทั่วไป</p>"
+        "title": "Windows Server 2022 + MT5 + FTMO",
+        "date": "5 มี.ค. 2026",
+        "content": "<p>Windows Server 2022 รองรับ MT5 และ FTMO</p><p>ความต้องการ: Windows 10/11/Server 2019/2022 (64-bit), 4GB RAM, 2 cores</p><p>เหมาะสำหรับรัน 24/7</p>"
+      },
+      {
+        "title": "WSL Chromium Limitation",
+        "date": "2 มี.ค. 2026",
+        "content": "<p>ติดตั้ง Chromium บน WSL ผ่าน snap มีปัญหาความเสถียร</p><p>ควรใช้ web_fetch และ web_search แทน</p><p>เบากว่าและเสถียรกว่า</p>"
       },
       {
         "title": "Obsidian คืออะไร?",
@@ -43,9 +58,36 @@
     ],
     "trading": [
       {
-        "title": "Windows Server + MT5 + FTMO",
+        "title": "XAUUSD (Gold) Technical Analysis",
         "date": "4 มี.ค. 2026",
-        "content": "<p>Windows Server 2022 รองรับ MT5</p><p>ใช้เทรดกับ FTMO ได้เลย</p><p>ต้องการ: Windows 10/11/Server 2019/2022 (64-bit), 4GB RAM</p>"
+        "content": "<p><strong>Support Zone</strong>: 5,101-5,069</p><p><strong>Current</strong>: $5,198.86</p><p><strong>Trend</strong>: Short-term uptrend intact</p><p><strong>Fed Rate</strong>: 3.75%</p>"
+      },
+      {
+        "title": "US-Iran Conflict Impact on Gold",
+        "date": "2 มี.ค. 2026",
+        "content": "<p>การปะทุของความขัดแย้ง US-Iran ทำให้ Gold พุ่งสูงขึ้น $100</p><p>XAUUSD ขึ้นไปถึง $5,351</p><p>Safe haven demand เพิ่มสูงขึ้น</p>"
+      }
+    ],
+    "system": [
+      {
+        "title": "CORE Authority Protocol",
+        "date": "2 มี.ค. 2026",
+        "content": "<p>กรณี Jarvis/JIU ติดขัดทางเทคนิคหรือแก้โค้ดไม่ได้</p><p>ให้ส่งต่อให้ CORE มีอำนาจตัดสินใจสูงสุด</p>"
+      },
+      {
+        "title": "กฎ 3 ครั้งหยุด (Max 2 Retries)",
+        "date": "2 มี.ค. 2026",
+        "content": "<p>ทำภารกิจล้มเหลว = ลองใหม่ได้รวม 3 ครั้ง</p><p>ยังไม่สำเร็จ = หยุดทันทีและรายงาน</p><p>หรือส่งต่อให้ CORE วิเคราะห์</p>"
+      },
+      {
+        "title": "Backup Before Action",
+        "date": "2 มี.ค. 2026",
+        "content": "<p>ต้องทำ Backup ก่อนแก้ไขระบบหรือโค้ดทุกครั้ง 100%</p><p>Backup ทุก 2 วัน เวลา 03:00 น.</p><p>ส่งอีเมลแจ้ง bass1135@gmail.com</p>"
+      },
+      {
+        "title": "Jarvis Task Tracker",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>สร้าง Google Sheet สำหรับติดตามงาน</p><p>มี 3 Tabs: Summary, In Progress, Completed</p><p>URL: docs.google.com/spreadsheets/d/1sJKYdfk...</p>"
       }
     ]
   }
