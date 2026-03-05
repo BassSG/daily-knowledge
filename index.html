@@ -23,10 +23,8 @@
         html, body { height: 100%; }
         body { font-family: 'Prompt', sans-serif; background: var(--dark); color: var(--text); overflow: hidden; }
         
-        /* App */
         .app { height: 100%; display: flex; flex-direction: column; }
         
-        /* Hero - Beautiful gradient */
         .hero { 
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
             padding: 35px 20px 25px; text-align: center; flex-shrink: 0; position: relative; overflow: hidden;
@@ -48,21 +46,18 @@
         }
         .hero-icon svg { width: 45px; height: 45px; }
         .hero h1 { font-size: 1.6rem; font-weight: 700; text-shadow: 0 3px 12px rgba(0,0,0,0.35); margin-bottom: 4px; }
-        .hero p { font-size: 0.9rem; opacity: 0.95; font-weight: 400; }
+        .hero p { font-size: 0.9rem; opacity: 0.95; }
         .hero .date { 
             display: inline-block; margin-top: 12px; padding: 6px 16px; 
             background: rgba(255,255,255,0.25); border-radius: 20px; 
             font-size: 0.78rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.35);
         }
         
-        /* Content */
         .content { flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 18px; padding-bottom: 95px; }
         
-        /* Section */
         .section { margin-bottom: 24px; }
         .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
         
-        /* Cards - Beautiful */
         .card { 
             background: linear-gradient(150deg, var(--dark2), var(--dark3)); 
             border-radius: 18px; padding: 18px; margin-bottom: 14px; 
@@ -72,12 +67,11 @@
         .card:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
         .card .tag { 
             display: inline-block; padding: 5px 14px; background: var(--primary); 
-            border-radius: 14px; font-size: 0.68rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+            border-radius: 14px; font-size: 0.68rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase;
         }
         .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
         .card .meta { font-size: 0.78rem; color: var(--text2); }
         
-        /* Category Colors */
         .card.oc { border-left-color: #6366f1; }
         .card.oc .tag { background: #6366f1; }
         .card.ai { border-left-color: #ec4899; }
@@ -89,12 +83,10 @@
         .card.meet { border-left-color: #f59e0b; }
         .card.meet .tag { background: #f59e0b; }
         
-        /* Status */
         .ok { color: var(--success); }
         .err { color: var(--danger); }
         .off { color: var(--text2); }
         
-        /* Nav */
         .nav { 
             position: fixed; bottom: 0; left: 0; right: 0; 
             background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(25px);
@@ -106,7 +98,6 @@
         .nav-item .icon { font-size: 24px; display: block; margin-bottom: 3px; }
         .nav-item span { font-size: 0.72rem; font-weight: 600; }
         
-        /* Modal */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 100; overflow-y: auto; }
         .modal.show { display: block; }
         .modal-content { padding: 22px; max-width: 520px; margin: 0 auto; }
@@ -115,9 +106,7 @@
         .modal .meta { font-size: 0.82rem; color: var(--text2); margin-bottom: 18px; }
         .modal .body { font-size: 0.98rem; line-height: 1.8; }
         .modal .body p { margin-bottom: 14px; }
-        .back { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 0.92rem; margin-bottom: 16px; }
         
-        /* Icon in card */
         .card-icon { font-size: 1.3rem; margin-bottom: 6px; }
     </style>
 </head>
@@ -175,59 +164,37 @@
             ],
             meeting: [
                 {title: "Knowledge App", icon: "📱", cat: "meet", content: "<p><strong>🎯 สร้าง App</strong> สำหรับดูความรู้ใหม่ทุกวัน</p><p><strong>✅ ทำแล้ว:</strong> HTML/CSS/JS, GitHub Pages</p><p><strong>📱 Link:</strong> basssg.github.io/daily-knowledge</p>"},
-                {title: "Task Tracker", icon: "📋", cat: "meet", content: "<p><strong>Google Sheet:</strong> Jarvis Task Tracker</p><p><strong>ID:</strong> 1sJKYdfkBPoHg4LC5ZMp0NxHy5ffcEjN25CSpevogK8s</p><p><strong>Tabs:</strong> Summary, In Progress, Completed</p>"}
+                {title: "Task Tracker", icon: "📋", cat: "meet", content: "<p><strong>Google Sheet:</strong> Jarvis Task Tracker</p><p><strong>ID:</strong> 1sJKYdfkBPoHg4LC5ZMp0NxHy5ffcEjN25CSpevogK8s</p><p><strong>Tabs:</strong> Summary, In Progress, Completed</p>"},
+                {title: "ระบบ Cron Jobs", icon: "⏰", cat: "meet", content: "<p><strong>📋 ตารางอัปเดต:</strong></p><p>• ทุกเช้า 06:30 - อัปเดตข่าว</p><p>• ทุกวันจันทร์ - สรุปสัปดาห์</p><p>• ทุกเดือน - Backup ใหญ่</p>"}
             ]
         };
         
-        // Render Home - Beautiful
+        function card(item, cat) {
+            return `<div class="card ${cat}" onclick="show('${cat}', '${item.title.replace(/'/g, "\\'")}')">
+                <span class="tag">${item.icon} ${item.title}</span>
+                <div class="meta" style="margin-top:8px">คลิกเพื่ออ่าน →</div>
+            </div>`;
+        }
+        
         function renderHome() {
             content.innerHTML = `
-                <div class="section">
-                    <div class="section-title">🦞 OpenClaw</div>
-                    ${data.openclaw.slice(0,1).map(i => card(i, 'openclaw')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">🤖 AI ล่าสุด</div>
-                    ${data.ai.slice(0,1).map(i => card(i, 'ai')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">💻 Tech</div>
-                    ${data.tech.slice(0,1).map(i => card(i, 'tech')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">📈 Trading</div>
-                    ${data.trading.slice(0,1).map(i => card(i, 'trade')).join('')}
-                </div>
+                <div class="section"><div class="section-title">🦞 OpenClaw</div>${data.openclaw.slice(0,1).map(i => card(i, 'openclaw')).join('')}</div>
+                <div class="section"><div class="section-title">🤖 AI ล่าสุด</div>${data.ai.slice(0,1).map(i => card(i, 'ai')).join('')}</div>
+                <div class="section"><div class="section-title">💻 Tech</div>${data.tech.slice(0,1).map(i => card(i, 'tech')).join('')}</div>
+                <div class="section"><div class="section-title">📈 Trading</div>${data.trading.slice(0,1).map(i => card(i, 'trading')).join('')}</div>
             `;
         }
         
-        // Render Learn - All
         function renderLearn() {
             content.innerHTML = `
-                <div class="section">
-                    <div class="section-title">🦞 OpenClaw</div>
-                    ${data.openclaw.map(i => card(i, 'openclaw')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">🤖 AI</div>
-                    ${data.ai.map(i => card(i, 'ai')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">💻 Tech</div>
-                    ${data.tech.map(i => card(i, 'tech')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">📈 Trading</div>
-                    ${data.trading.map(i => card(i, 'trade')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">📋 การประชุม</div>
-                    ${data.meeting.map(i => card(i, 'meet')).join('')}
-                </div>
+                <div class="section"><div class="section-title">🦞 OpenClaw</div>${data.openclaw.map(i => card(i, 'openclaw')).join('')}</div>
+                <div class="section"><div class="section-title">🤖 AI</div>${data.ai.map(i => card(i, 'ai')).join('')}</div>
+                <div class="section"><div class="section-title">💻 Tech</div>${data.tech.map(i => card(i, 'tech')).join('')}</div>
+                <div class="section"><div class="section-title">📈 Trading</div>${data.trading.map(i => card(i, 'trading')).join('')}</div>
+                <div class="section"><div class="section-title">📋 การประชุม</div>${data.meeting.map(i => card(i, 'meeting')).join('')}</div>
             `;
         }
         
-        // Render Cron
         function renderCron() {
             const jobs = [
                 {name: "Morning Brief", time: "07:00", status: "ok", icon: "🌅"},
@@ -239,20 +206,17 @@
             ];
             
             content.innerHTML = `
-                <div class="section">
-                    <div class="section-title">⏰ ตารางงาน</div>
-                    ${jobs.map(j => `
-                        <div class="card oc">
-                            <div class="card-icon">${j.icon}</div>
-                            <h3>${j.name}</h3>
-                            <div class="meta">🕐 ${j.time} &nbsp;|&nbsp; <span class="${j.status === 'ok' ? 'ok' : 'off'}">${j.status === 'ok' ? '✅ ทำงาน' : '⛔ ปิด'}</span></div>
-                        </div>
-                    `).join('')}
-                </div>
+                <div class="section"><div class="section-title">⏰ ตารางงาน</div>
+                ${jobs.map(j => `
+                    <div class="card oc">
+                        <div class="card-icon">${j.icon}</div>
+                        <h3>${j.name}</h3>
+                        <div class="meta">🕐 ${j.time} &nbsp;|&nbsp; <span class="${j.status === 'ok' ? 'ok' : 'off'}">${j.status === 'ok' ? '✅ ทำงาน' : '⛔ ปิด'}</span></div>
+                    </div>
+                `).join('')}</div>
             `;
         }
         
-        // Render Team
         function renderTeam() {
             const history = [
                 {job: "Morning Brief", time: "07:00", status: "ok", result: "XAUUSD $5,171", icon: "🌅"},
@@ -262,28 +226,16 @@
             ];
             
             content.innerHTML = `
-                <div class="section">
-                    <div class="section-title">📋 การประชุม</div>
-                    ${data.meeting.map(i => card(i, 'meet')).join('')}
-                </div>
-                <div class="section">
-                    <div class="section-title">📊 ประวัติงาน</div>
-                    ${history.map(h => `
-                        <div class="card oc">
-                            <div class="card-icon">${h.icon}</div>
-                            <h3>${h.job}</h3>
-                            <div class="meta">🕐 ${h.time} &nbsp;|&nbsp; <span class="${h.status === 'ok' ? 'ok' : 'err'}">${h.status === 'ok' ? '✅' : '❌'}</span> ${h.result}</div>
-                        </div>
-                    `).join('')}
-                </div>
+                <div class="section"><div class="section-title">📋 การประชุม & สิ่งที่ทำ</div>${data.meeting.map(i => card(i, 'meeting')).join('')}</div>
+                <div class="section"><div class="section-title">📊 ประวัติงาน</div>
+                ${history.map(h => `
+                    <div class="card oc">
+                        <div class="card-icon">${h.icon}</div>
+                        <h3>${h.job}</h3>
+                        <div class="meta">🕐 ${h.time} &nbsp;|&nbsp; <span class="${h.status === 'ok' ? 'ok' : 'err'}">${h.status === 'ok' ? '✅' : '❌'}</span> ${h.result}</div>
+                    </div>
+                `).join('')}</div>
             `;
-        }
-        
-        function card(item, cat) {
-            return `<div class="card ${cat}" onclick="show('${cat}', '${item.title.replace(/'/g, "\\'")}')">
-                <span class="tag">${item.icon} ${item.title}</span>
-                <div class="meta" style="margin-top:8px">คลิกเพื่ออ่าน →</div>
-            </div>`;
         }
         
         function show(cat, title) {
