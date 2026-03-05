@@ -1,5 +1,5 @@
 {
-  "timestamp": 1772673770280,
+  "timestamp": 1772773770280,
   "articles": {
     "openclaw": [
       {
@@ -10,6 +10,12 @@
       }
     ],
     "ai": [
+      {
+        "title": "Minimax Models - โมเดล AI ที่ Jarvis ใช้",
+        "date": "5 มี.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>🤖 Minimax</strong> เป็นโมเดล AI ที่ Jarvis ใช้ทำงานทุกวัน</p><p><strong>💡 ข้อดี</strong>:<br>• ราคาถูกกว่า Claude/GPT<br>• รองรับภาษาไทยดี<br>• เร็วและประหยัด Token</p><p><strong>📊 เวอร์ชัน</strong>:<br>• M2.1 - งานเขียนโค้ด/วิเคราะห์<br>• M2.5 - งานทั่วไป (เร็ว)</p>"
+      },
       {
         "title": "AI Agents กลายเป็นเทรนด์หลัก 2026",
         "date": "05 ม.ค. 2026",
