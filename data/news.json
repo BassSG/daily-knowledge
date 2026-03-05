@@ -1,0 +1,43 @@
+{
+  "timestamp": 1772673693186,
+  "articles": {
+    "openclaw": [
+      {
+        "title": "OpenClaw v2026.3.2 มีอะไรใหม่?",
+        "date": "5 มี.ค. 2026",
+        "readTime": "3 นาที",
+        "content": "<p><strong>🎉 อัปเดตใหม่!</strong> OpenClaw เวอร์ชัน 2026.3.2</p><p><strong>📄 PDF Analysis Tool</strong><br>วิเคราะห์ PDF ได้เลย!</p>"
+      }
+    ],
+    "ai": [
+      {
+        "title": "AI Agents กลายเป็นเทรนด์หลัก 2026",
+        "date": "05 ม.ค. 2026",
+        "readTime": "3 นาที",
+        "content": "<p><strong>🤖 AI Agents</strong> กำลังมาแรง! หลายบริษัทเริ่มใช้ AI ทำงานแทนมนุษย์มากขึ้น</p><p><strong>💡 ตัวอย่าง</strong>:<br>• สั่งให้หาข่าวและสรุป<br>• ทำรายงานอัตโนมัติ<br>• ตอบอีเมลแทน</p>"
+      },
+      {
+        "title": "OpenClaw อัปเดต v2026.3.2",
+        "date": "05 ม.ค. 2026",
+        "readTime": "2 นาที",
+        "content": "<p><strong>🎉 ฟีเจอร์ใหม่</strong>:<br>• PDF Analysis Tool<br>• 150+ Bug Fixes<br>• Secrets/SecretRef 64 targets</p>"
+      }
+    ],
+    "tech": [
+      {
+        "title": "Windows Server 2022 vs Windows 10",
+        "date": "05 ม.ค. 2026",
+        "readTime": "3 นาที",
+        "content": "<p><strong>🖥️ Server 2022</strong> - เสถียรสูง รัน 24/7</p><p><strong>🖥️ Windows 10/11</strong> - ใช้ง่าย ถูกกว่า</p>"
+      }
+    ],
+    "trading": [
+      {
+        "title": "Windows Server + MT5 + FTMO",
+        "date": "05 ม.ค. 2026",
+        "readTime": "4 นาที",
+        "content": "<p><strong>✅ ใช้ได้!</strong><br>Server 2022 รัน MT5 เทรด FTMO ได้</p><p><strong>📋 ความต้องการ</strong><br>• Windows 10/11/Server 2019/2022<br>• RAM 4GB+</p>"
+      }
+    ]
+  }
+}
