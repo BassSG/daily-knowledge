@@ -8,411 +8,137 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #f472b6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #0f172a;
-            --dark-secondary: #1e293b;
-            --dark-tertiary: #334155;
-            --text: #f8fafc;
-            --text-secondary: #94a3b8;
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #8b5cf6;
+            --accent: #f472b6; --success: #10b981; --warning: #f59e0b;
+            --danger: #ef4444; --dark: #0f172a; --dark-secondary: #1e293b;
+            --dark-tertiary: #334155; --text: #f8fafc; --text-secondary: #94a3b8;
         }
-        
         body {
             font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark);
-            min-height: 100vh;
-            color: var(--text);
-            line-height: 1.6;
+            background: var(--dark); min-height: 100vh; color: var(--text); line-height: 1.6;
         }
-        
         body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.05) 0%, transparent 50%);
+            pointer-events: none; z-index: -1;
         }
-        
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-            padding: 25px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 25px 20px; text-align: center; position: sticky; top: 0; z-index: 100;
             box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
         }
-        
         .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: var(--dark);
-            clip-path: ellipse(60% 100% at 50% 100%);
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px;
+            background: var(--dark); clip-path: ellipse(60% 100% at 50% 100%);
         }
-        
-        .header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .header p {
-            font-size: 0.95rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-        
+        .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .header p { font-size: 0.95rem; opacity: 0.95; font-weight: 300; }
         .date {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 25px;
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 8px 20px;
+            border-radius: 25px; display: inline-block; margin-top: 15px; font-size: 0.85rem;
+            font-weight: 500; border: 1px solid rgba(255,255,255,0.3);
         }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-bottom: 100px;
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 25px 0 35px;
-        }
-        
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; padding-bottom: 100px; }
+        .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 25px 0 35px; }
         .category-card {
             background: linear-gradient(145deg, var(--dark-secondary), var(--dark-tertiary));
-            border-radius: 20px;
-            padding: 25px 20px;
-            text-align: center;
-            cursor: pointer;
+            border-radius: 20px; padding: 25px 20px; text-align: center; cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;
         }
-        
         .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--card-color);
-            opacity: 0.8;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--card-color); opacity: 0.8;
         }
-        
         .category-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             border-color: var(--card-color);
         }
-        
-        .category-card .icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            display: block;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-        
-        .category-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .category-card p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        
+        .category-card .icon { font-size: 3rem; margin-bottom: 12px; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        .category-card h3 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; }
+        .category-card p { font-size: 0.8rem; color: var(--text-secondary); }
         .category-card[data-cat="openclaw"] { --card-color: #6366f1; }
         .category-card[data-cat="ai"] { --card-color: #ec4899; }
         .category-card[data-cat="tech"] { --card-color: #06b6d4; }
         .category-card[data-cat="trading"] { --card-color: #10b981; }
-        
-        .section {
-            margin-bottom: 35px;
-        }
-        
+        .category-card[data-cat="cron"] { --card-color: #f59e0b; }
+        .section { margin-bottom: 35px; }
         .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
+            font-size: 1.2rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
         }
-        
-        .section-title .icon {
-            font-size: 1.5rem;
-        }
-        
+        .section-title .icon { font-size: 1.5rem; }
         .section-title::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), transparent);
-            border-radius: 2px;
+            content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, var(--primary), transparent); border-radius: 2px;
         }
-        
         .article-card {
             background: linear-gradient(145deg, var(--dark-secondary), var(--dark));
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            overflow: hidden;
+            border-radius: 16px; padding: 20px; margin-bottom: 15px; cursor: pointer;
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;
         }
-        
         .article-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--tag-color, var(--primary));
-            opacity: 0.7;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--tag-color, var(--primary)); opacity: 0.7;
         }
-        
-        .article-card:hover {
-            transform: translateX(5px);
-            border-color: var(--tag-color, var(--primary));
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
+        .article-card:hover { transform: translateX(5px); border-color: var(--tag-color, var(--primary)); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .article-card .tag {
             background: linear-gradient(135deg, var(--tag-color, var(--primary)), var(--tag-color-darker, var(--primary-dark)));
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            display: inline-block;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            padding: 5px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 500;
+            display: inline-block; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
         }
-        
         .article-card[data-cat="openclaw"] { --tag-color: #6366f1; --tag-color-darker: #4f46e5; }
         .article-card[data-cat="ai"] { --tag-color: #ec4899; --tag-color-darker: #db2777; }
         .article-card[data-cat="tech"] { --tag-color: #06b6d4; --tag-color-darker: #0891b2; }
         .article-card[data-cat="trading"] { --tag-color: #10b981; --tag-color-darker: #059669; }
-        
-        .article-card h4 {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-        
-        .article-card .meta {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .article-card .meta .dot {
-            width: 4px;
-            height: 4px;
-            background: var(--text-secondary);
-            border-radius: 50%;
-        }
-        
+        .article-card[data-cat="cron"] { --tag-color: #f59e0b; --tag-color-darker: #d97706; }
+        .article-card h4 { font-size: 1rem; margin-bottom: 10px; line-height: 1.5; font-weight: 500; }
+        .article-card .meta { font-size: 0.75rem; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+        .article-card .meta .dot { width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%; }
+        .status-ok { color: var(--success) !important; }
+        .status-error { color: var(--danger) !important; }
+        .status-disabled { color: var(--text-secondary) !important; text-decoration: line-through; }
+        .cron-time { font-size: 0.8rem; color: var(--warning); font-weight: 600; margin-bottom: 5px; }
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 10px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            z-index: 100;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+            position: fixed; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px); display: flex; justify-content: space-around; padding: 12px 10px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1); z-index: 100; box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
         }
-        
         .bottom-nav-item {
-            text-align: center;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: all 0.3s;
-            padding: 8px 15px;
-            border-radius: 15px;
+            text-align: center; cursor: pointer; opacity: 0.5; transition: all 0.3s; padding: 8px 15px; border-radius: 15px;
         }
-        
-        .bottom-nav-item:hover,
-        .bottom-nav-item.active {
-            opacity: 1;
-            background: rgba(99, 102, 241, 0.2);
-        }
-        
-        .bottom-nav-item .icon {
-            font-size: 1.6rem;
-            display: block;
-            margin-bottom: 2px;
-        }
-        
-        .bottom-nav-item span {
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-        
+        .bottom-nav-item:hover, .bottom-nav-item.active { opacity: 1; background: rgba(99, 102, 241, 0.2); }
+        .bottom-nav-item .icon { font-size: 1.6rem; display: block; margin-bottom: 2px; }
+        .bottom-nav-item span { font-size: 0.7rem; font-weight: 500; }
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.9);
-            z-index: 200;
-            overflow-y: auto;
-            backdrop-filter: blur(10px);
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9); z-index: 200; overflow-y: auto; backdrop-filter: blur(10px);
         }
-        
-        .modal.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .modal-content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-bottom: 40px;
-        }
-        
+        .modal.show { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content { max-width: 600px; margin: 0 auto; padding: 20px; padding-bottom: 40px; }
         .modal-close {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: var(--dark-secondary);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 201;
+            position: fixed; top: 20px; right: 20px; width: 40px; height: 40px;
+            background: var(--dark-secondary); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%;
+            color: white; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; transition: all 0.3s; z-index: 201;
         }
-        
-        .modal-close:hover {
-            background: var(--danger);
-            transform: rotate(90deg);
-        }
-        
-        .article-full h2 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            font-weight: 600;
-        }
-        
-        .article-full .meta {
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .article-full .content {
-            line-height: 1.9;
-            font-size: 1rem;
-        }
-        
-        .article-full .content p {
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .article-full .content strong {
-            color: var(--primary);
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        
-        .empty-state .icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-        
-        .empty-state p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-        
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-        
-        .back-btn:hover {
-            color: var(--accent);
-            transform: translateX(-5px);
-        }
+        .modal-close:hover { background: var(--danger); transform: rotate(90deg); }
+        .article-full h2 { font-size: 1.6rem; margin-bottom: 15px; line-height: 1.4; font-weight: 600; }
+        .article-full .meta { color: var(--text-secondary); margin-bottom: 25px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; }
+        .article-full .content { line-height: 1.9; font-size: 1rem; }
+        .article-full .content p { margin-bottom: 18px; color: var(--text); }
+        .article-full .content strong { color: var(--primary); }
+        .empty-state { text-align: center; padding: 60px 20px; }
+        .empty-state .icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.5; }
+        .empty-state p { color: var(--text-secondary); font-size: 1rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-size: 0.9rem; cursor: pointer; margin-bottom: 20px; transition: all 0.3s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
+        .cron-group { margin-bottom: 25px; }
+        .cron-group-title { font-size: 1rem; color: var(--warning); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .cron-group-title .time { background: rgba(245, 158, 11, 0.2); padding: 3px 10px; border-radius: 10px; font-size: 0.75rem; }
     </style>
 </head>
 <body>
@@ -421,64 +147,29 @@
         <p>ความรู้ใหม่ทุกวัน อัปเดตล่าสุด</p>
         <div class="date" id="currentDate">Loading...</div>
     </header>
-    
     <main class="container" id="mainContent">
         <div class="category-grid" id="categoryGrid">
-            <div class="category-card" data-cat="openclaw" onclick="showCategory('openclaw')">
-                <span class="icon">🦞</span>
-                <h3>OpenClaw</h3>
-                <p>อัปเดตระบบ AI</p>
-            </div>
-            <div class="category-card" data-cat="ai" onclick="showCategory('ai')">
-                <span class="icon">🤖</span>
-                <h3>AI News</h3>
-                <p>ข่าว AI ล่าสุด</p>
-            </div>
-            <div class="category-card" data-cat="tech" onclick="showCategory('tech')">
-                <span class="icon">💻</span>
-                <h3>Tech</h3>
-                <p>เทคโนโลยีใหม่</p>
-            </div>
-            <div class="category-card" data-cat="trading" onclick="showCategory('trading')">
-                <span class="icon">📈</span>
-                <h3>Trading</h3>
-                <p>เทรด & การเงิน</p>
-            </div>
+            <div class="category-card" data-cat="openclaw" onclick="showCategory('openclaw')"><span class="icon">🦞</span><h3>OpenClaw</h3><p>อัปเดตระบบ AI</p></div>
+            <div class="category-card" data-cat="ai" onclick="showCategory('ai')"><span class="icon">🤖</span><h3>AI News</h3><p>ข่าว AI ล่าสุด</p></div>
+            <div class="category-card" data-cat="tech" onclick="showCategory('tech')"><span class="icon">💻</span><h3>Tech</h3><p>เทคโนโลยีใหม่</p></div>
+            <div class="category-card" data-cat="trading" onclick="showCategory('trading')"><span class="icon">📈</span><h3>Trading</h3><p>เทรด & การเงิน</p></div>
+            <div class="category-card" data-cat="cron" onclick="showCronJobs()"><span class="icon">⏰</span><h3>Cron Jobs</h3><p>ตารางงาน</p></div>
         </div>
-        
         <div class="section">
-            <h2 class="section-title">
-                <span class="icon">🔥</span>
-                ล่าสุด
-            </h2>
+            <h2 class="section-title"><span class="icon">🔥</span>ล่าสุด</h2>
             <div id="latestArticles"></div>
         </div>
     </main>
-    
     <nav class="bottom-nav">
-        <div class="bottom-nav-item active" onclick="goHome()">
-            <span class="icon">🏠</span>
-            <span>หน้าหลัก</span>
-        </div>
-        <div class="bottom-nav-item" onclick="showCategories()">
-            <span class="icon">📚</span>
-            <span>หมวดหมู่</span>
-        </div>
-        <div class="bottom-nav-item" onclick="showSaved()">
-            <span class="icon">🔖</span>
-            <span>บันทึก</span>
-        </div>
-        <div class="bottom-nav-item" onclick="showSettings()">
-            <span class="icon">⚙️</span>
-            <span>ตั้งค่า</span>
-        </div>
+        <div class="bottom-nav-item active" onclick="goHome()"><span class="icon">🏠</span><span>หน้าหลัก</span></div>
+        <div class="bottom-nav-item" onclick="showCategories()"><span class="icon">📚</span><span>หมวดหมู่</span></div>
+        <div class="bottom-nav-item" onclick="showSaved()"><span class="icon">🔖</span><span>บันทึก</span></div>
+        <div class="bottom-nav-item" onclick="showSettings()"><span class="icon">⚙️</span><span>ตั้งค่า</span></div>
     </nav>
-    
     <div class="modal" id="articleModal">
         <button class="modal-close" onclick="closeModal()">✕</button>
         <div class="modal-content article-full" id="modalContent"></div>
     </div>
-    
     <script>
         const date = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -486,71 +177,80 @@
         
         const articles = {
             openclaw: [
-                {
-                    title: "OpenClaw v2026.3.2 มีอะไรใหม่?",
-                    date: "5 มี.ค. 2026",
-                    readTime: "3 นาที",
-                    content: `<p><strong>🎉 อัปเดตใหม่!</strong> OpenClaw เวอร์ชัน 2026.3.2 มาพร้อมฟีเจอร์ใหม่และการปรับปรุงมากมาย</p><p><strong>📄 PDF Analysis Tool</strong><br>ตอนนี้สามารถวิเคราะห์ไฟล์ PDF ได้โดยตรง!</p><p><strong>🐛 150+ Bug Fixes</strong><br>ทีมงานได้แก้ไขบักมากกว่า 150 จุด</p><p><strong>🔐 Secrets/SecretRef</strong><br>รองรับการจัดการข้อมูลลับได้มากขึ้นถึง 64 targets</p>`
-                },
-                {
-                    title: "วิธีใช้ Minimax Models กับ Jarvis",
-                    date: "4 มี.ค. 2026",
-                    readTime: "2 นาที",
-                    content: `<p><strong>🤖 Minimax คืออะไร?</strong><br>Minimax เป็นโมเดล AI ที่ Jarvis ใช้ทำงานหลัก</p><p><strong>✓ ข้อดี</strong><br>• ราคาถูก<br>• ตอบเร็ว<br>• รองรับภาษาไทยดี</p><p><strong>📊 Model Tiers</strong><br>• M2.5 - งานทั่วไป<br>• M2.1 - เขียนโค้ด</p>`
-                }
+                { title: "OpenClaw v2026.3.2 มีอะไรใหม่?", date: "5 มี.ค. 2026", readTime: "3 นาที", content: `<p><strong>🎉 อัปเดตใหม่!</strong> OpenClaw เวอร์ชัน 2026.3.2 มาพร้อมฟีเจอร์ใหม่</p><p><strong>📄 PDF Analysis Tool</strong><br>วิเคราะห์ PDF ได้เลย!</p><p><strong>🐛 150+ Bug Fixes</strong><br>แก้บักมากมาย</p><p><strong>🔐 Secrets/SecretRef</strong><br>รองรับ 64 targets</p>` },
+                { title: "วิธีใช้ Minimax Models กับ Jarvis", date: "4 มี.ค. 2026", readTime: "2 นาที", content: `<p><strong>🤖 Minimax คืออะไร?</strong><br>โมเดล AI ที่ Jarvis ใช้ทำงาน</p><p><strong>✓ ข้อดี</strong><br>• ราคาถูก • ตอบเร็ว • รองรับภาษาไทยดี</p>` }
             ],
             ai: [
-                {
-                    title: "AI Agents คืออะไร? ทำไมถึงสำคัญ",
-                    date: "5 มี.ค. 2026",
-                    readTime: "4 นาที",
-                    content: `<p><strong>🤖 AI Agents คืออะไร?</strong><br>AI Agents คือ ปัญญาประดิษฐ์ที่สามารถทำงานแทนเราได้โดยอัตโนมัติ</p><p><strong>💡 ตัวอย่าง</strong><br>• สั่งให้หาข่าวและสรุป<br>• ทำรายงานอัตโนมัติ<br>• จัดการงานแทน</p><p><strong>🔮 อนาคต</strong><br>AI Agents จะมีบทบาทสำคัญมากในอนาคต</p>`
-                },
-                {
-                    title: "Claude vs GPT vs Gemini: เปรียบเทียบ",
-                    date: "3 มี.ค. 2026",
-                    readTime: "3 นาที",
-                    content: `<p><strong>🔵 Claude</strong><br>• เน้นความปลอดภัย<br>• เหมาะกับงานวิเคราะห์</p><p><strong>🟢 GPT</strong><br>• ใช้งานง่าย<br>• มี Plugins ให้เลือกมาก</p><p><strong>🟣 Gemini</strong><br>• เน้น Multimodal<br>• ผสมผสาน Google Services</p>`
-                }
+                { title: "AI Agents คืออะไร?", date: "5 มี.ค. 2026", readTime: "4 นาที", content: `<p><strong>🤖 AI Agents</strong><br>AI ที่ทำงานแทนเราได้อัตโนมัติ</p><p><strong>💡 ตัวอย่าง</strong><br>• หาข่าวสรุป • ทำรายงาน • จัดการงาน</p>` },
+                { title: "Claude vs GPT vs Gemini", date: "3 มี.ค. 2026", readTime: "3 นาที", content: `<p><strong>🔵 Claude</strong> - เน้นความปลอดภัย</p><p><strong>🟢 GPT</strong> - ใช้ง่าย หลาย Plugins</p><p><strong>🟣 Gemini</strong> - เน้น Multimodal</p>` }
             ],
             tech: [
-                {
-                    title: "Windows Server 2022 vs Windows 10",
-                    date: "4 มี.ค. 2026",
-                    readTime: "3 นาที",
-                    content: `<p><strong>🖥️ Windows Server 2022</strong><br>• เหมาะกับ: รัน Server, VPS<br>• ข้อดี: เสถียรสูง<br>• ข้อเสีย: แพง</p><p><strong>🖥️ Windows 10/11</strong><br>• เหมาะกับ: ใช้งานทั่วไป<br>• ข้อดี: ถูกกว่า, ใช้ง่าย</p><p><strong>💡 สรุป</strong><br>ถ้าเทรดอย่างเดียว Server โอเค แต่ถ้าอยากใช้ทั่วไป ใช้ Windows 10/11</p>`
-                },
-                {
-                    title: "Obsidian: App สำหรับ Second Brain",
-                    date: "4 มี.ค. 2026",
-                    readTime: "2 นาที",
-                    content: `<p><strong>📝 Obsidian คืออะไร?</strong><br>App เขียนโน้ตและจัดการความรู้</p><p><strong>✨ ฟีเจอร์เด่น</strong><br>• Markdown<br>• เชื่อมโยงโน้ต<br>• ปรับแต่งได้เยอะ</p><p><strong>💰 ราคา</strong><br>ฟรีสำหรับใช้งานส่วนตัว!</p>`
-                }
+                { title: "Windows Server 2022 vs Windows 10", date: "4 มี.ค. 2026", readTime: "3 นาที", content: `<p><strong>🖥️ Server 2022</strong> - เสถียรสูง รัน 24/7</p><p><strong>🖥️ Windows 10/11</strong> - ใช้ง่าย ถูกกว่า</p>` },
+                { title: "Obsidian: Second Brain", date: "4 มี.ค. 2026", readTime: "2 นาที", content: `<p><strong>📝 App เขียนโน้ต</strong><br>เชื่อมโยงความคิด</p><p><strong>💰 ฟรี!</strong><br>ใช้งานส่วนตัวฟรี</p>` }
             ],
             trading: [
-                {
-                    title: "Windows Server + MT5 + FTMO",
-                    date: "4 มี.ค. 2026",
-                    readTime: "4 นาที",
-                    content: `<p><strong>✅ สรุป: ใช้ได้!</strong><br>Windows Server 2022 สามารถรัน MT5 และเทรดกับ FTMO ได้เลย</p><p><strong>📋 ความต้องการ</strong><br>• OS: Windows 10/11/Server 2019/2022 (64-bit)<br>• RAM: 4 GB ขึ้นไป<br>• CPU: 2 cores ขึ้นไป</p><p><strong>⚠️ หมายเหตุ</strong><br>Windows 7 ไม่รองรับ MT5 แล้ว!</p>`
-                }
+                { title: "Windows Server + MT5 + FTMO", date: "4 มี.ค. 2026", readTime: "4 นาที", content: `<p><strong>✅ ใช้ได้!</strong><br>Server 2022 รัน MT5 เทรด FTMO ได้</p><p><strong>📋 ความต้องการ</strong><br>• Windows 10/11/Server 2019/2022 (64-bit)<br>• RAM 4GB+ • CPU 2 cores+</p>` }
             ]
         };
         
+        const cronJobs = [
+            { name: "Morning Brief (Gold+Oil)", time: "07:00", period: "เช้า", status: "ok", lastRun: "5 มี.ค. 2026" },
+            { name: "Midday Insight (Gold+Oil)", time: "10:00", period: "เช้า", status: "ok", lastRun: "4 มี.ค. 2026" },
+            { name: "News Focus (Gold+Oil)", time: "14:00", period: "บ่าย", status: "error", lastRun: "4 มี.ค. 2026" },
+            { name: "Evening Wrap (Gold+Oil)", time: "19:00", period: "ค่ำ", status: "ok", lastRun: "4 มี.ค. 2026" },
+            { name: "EOD Summary", time: "21:00", period: "ค่ำ", status: "ok", lastRun: "4 มี.ค. 2026" },
+            { name: "Nightly Review", time: "23:00", period: "ดึก", status: "ok", lastRun: "4 มี.ค. 2026" },
+            { name: "Backup System Check", time: "ทุก 8 ชม.", period: "all", status: "ok", lastRun: "5 มี.ค. 2026" },
+            { name: "Price Alert (Gold+Oil)", time: "ทุกชม.", period: "all", status: "disabled", lastRun: "4 มี.ค. 2026" }
+        ];
+        
         const categoryNames = {
-            openclaw: { name: 'OpenClaw', icon: '🦞' },
-            ai: { name: 'AI News', icon: '🤖' },
-            tech: { name: 'Tech', icon: '💻' },
-            trading: { name: 'Trading', icon: '📈' }
+            openclaw: { name: 'OpenClaw', icon: '🦞' }, ai: { name: 'AI News', icon: '🤖' },
+            tech: { name: 'Tech', icon: '💻' }, trading: { name: 'Trading', icon: '📈' }
         };
+        
+        function showCronJobs() {
+            const groups = { 'เช้า (06:00-12:00)': [], 'บ่าย (12:00-18:00)': [], 'ค่ำ (18:00-22:00)': [], 'ดึก (22:00-06:00)': [], 'ทุกชั่วโมง': [] };
+            cronJobs.forEach(job => {
+                if (job.time.includes('ชม')) groups['ทุกชั่วโมง'].push(job);
+                else if (job.period === 'เช้า') groups['เช้า (06:00-12:00)'].push(job);
+                else if (job.period === 'บ่าย') groups['บ่าย (12:00-18:00)'].push(job);
+                else if (job.period === 'ค่ำ') groups['ค่ำ (18:00-22:00)'].push(job);
+                else if (job.period === 'ดึก') groups['ดึก (22:00-06:00)'].push(job);
+                else groups['ทุกชั่วโมง'].push(job);
+            });
+            
+            let html = `<div class="back-btn" onclick="goHome()">← กลับหน้าหลัก</div>`;
+            html += `<h2 class="section-title"><span class="icon">⏰</span>Cron Jobs</h2>`;
+            html += `<p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">ตารางงานอัตโนมัติของ Jarvis</p>`;
+            
+            Object.keys(groups).forEach(period => {
+                if (groups[period].length > 0) {
+                    html += `<div class="cron-group"><div class="cron-group-title">${period}</div>`;
+                    groups[period].forEach(job => {
+                        const statusClass = job.status === 'ok' ? 'status-ok' : job.status === 'error' ? 'status-error' : 'status-disabled';
+                        const statusIcon = job.status === 'ok' ? '✅' : job.status === 'error' ? '❌' : '⛔';
+                        html += `<div class="article-card" data-cat="cron">
+                            <div class="cron-time">🕐 ${job.time}</div>
+                            <h4>${job.name}</h4>
+                            <div class="meta">
+                                <span class="${statusClass}">${statusIcon} ${job.status === 'ok' ? 'ทำงานปกติ' : job.status === 'error' ? 'มีข้อผิดพลาด' : 'ปิด'}</span>
+                                <span class="dot"></span>
+                                <span>Run: ${job.lastRun}</span>
+                            </div>
+                        </div>`;
+                    });
+                    html += `</div>`;
+                }
+            });
+            document.getElementById('mainContent').innerHTML = html;
+        }
         
         function showCategory(category) {
             const cat = categoryNames[category];
             let html = `<div class="back-btn" onclick="goHome()">← กลับหน้าหลัก</div><h2 class="section-title"><span class="icon">${cat.icon}</span>${cat.name}</h2>`;
             if (articles[category]) {
-                articles[category].forEach((article, index) => {
-                    html += createArticleCard(article, category, index);
-                });
+                articles[category].forEach((article, index) => { html += createArticleCard(article, category, index); });
             }
             document.getElementById('mainContent').innerHTML = html;
         }
@@ -566,41 +266,30 @@
             document.body.style.overflow = 'hidden';
         }
         
-        function closeModal() {
-            document.getElementById('articleModal').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
+        function closeModal() { document.getElementById('articleModal').classList.remove('show'); document.body.style.overflow = ''; }
         function goHome() { location.reload(); }
         
         function showCategories() {
-            document.getElementById('mainContent').innerHTML = `<div class="category-grid">${Object.keys(categoryNames).map(cat => `<div class="category-card" data-cat="${cat}" onclick="showCategory('${cat}')"><span class="icon">${categoryNames[cat].icon}</span><h3>${categoryNames[cat].name}</h3><p>${articles[cat]?.length || 0} บทความ</p></div>`).join('')}</div>`;
+            document.getElementById('mainContent').innerHTML = `<div class="category-grid">${Object.keys(categoryNames).map(cat => `<div class="category-card" data-cat="${cat}" onclick="showCategory('${cat}')"><span class="icon">${categoryNames[cat].icon}</span><h3>${categoryNames[cat].name}</h3><p>${articles[cat]?.length || 0} บทความ</p></div>`).join('')}<div class="category-card" data-cat="cron" onclick="showCronJobs()"><span class="icon">⏰</span><h3>Cron Jobs</h3><p>${cronJobs.length} งาน</p></div></div>`;
         }
         
-        function showSaved() {
-            document.getElementById('mainContent').innerHTML = `<div class="empty-state"><div class="icon">🔖</div><p>ยังไม่มีบทความที่บันทึก</p><p style="margin-top:10px;font-size:0.85rem;">กดบันทึกบทความที่สนใจได้เลย!</p></div>`;
-        }
+        function showSaved() { document.getElementById('mainContent').innerHTML = `<div class="empty-state"><div class="icon">🔖</div><p>ยังไม่มีบทความที่บันทึก</p></div>`; }
         
         function showSettings() {
-            document.getElementById('mainContent').innerHTML = `<div class="section"><h2 class="section-title"><span class="icon">⚙️</span>ตั้งค่า</h2><div class="article-card"><h4>🔔 แจ้งเตือน</h4><div class="meta">เปิด/ปิดการแจ้งเตือนข่าวใหม่</div></div><div class="article-card"><h4>🌙 ธีม</h4><div class="meta">มืด / สว่าง</div></div><div class="article-card"><h4>🔄 อัปเดตข้อมูล</h4><div class="meta">ดึงข่าวใหม่ล่าสุด</div></div></div>`;
+            document.getElementById('mainContent').innerHTML = `<div class="section"><h2 class="section-title"><span class="icon">⚙️</span>ตั้งค่า</h2>
+                <div class="article-card"><h4>🔔 แจ้งเตือน</h4><div class="meta">เปิด/ปิดการแจ้งเตือนข่าวใหม่</div></div>
+                <div class="article-card"><h4>🌙 ธีม</h4><div class="meta">มืด / สว่าง</div></div>
+                <div class="article-card"><h4>🔄 อัปเดตข้อมูล</h4><div class="meta">ดึงข่าวใหม่ล่าสุด</div></div></div>`;
         }
         
         function loadLatest() {
             let allArticles = [];
-            Object.keys(articles).forEach(cat => {
-                articles[cat].forEach((art, idx) => {
-                    allArticles.push({...art, category: cat, index: idx});
-                });
-            });
+            Object.keys(articles).forEach(cat => { articles[cat].forEach((art, idx) => { allArticles.push({...art, category: cat, index: idx}); }); });
             allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
-            const latest = allArticles.slice(0, 5);
-            document.getElementById('latestArticles').innerHTML = latest.map(a => createArticleCard(a, a.category, a.index)).join('');
+            document.getElementById('latestArticles').innerHTML = allArticles.slice(0, 5).map(a => createArticleCard(a, a.category, a.index)).join('');
         }
         
-        document.getElementById('articleModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-        
+        document.getElementById('articleModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
         loadLatest();
     </script>
 </body>
