@@ -1,0 +1,47 @@
+{
+  "articles": {
+    "openclaw": [
+      {
+        "title": "OpenClaw v2026.3.2 มีอะไรใหม่?",
+        "date": "5 มี.ค. 2026",
+        "content": "<p><strong>PDF Analysis Tool</strong> - วิเคราะห์ PDF ได้เลย</p><p><strong>150+ Bug Fixes</strong> - แก้บักมากมาย</p><p><strong>Secrets/SecretRef</strong> - รองรับ 64 targets</p>"
+      },
+      {
+        "title": "วิธีใช้ Minimax Models",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>Minimax เป็นโมเดล AI ที่ Jarvis ใช้ทำงาน</p><p>ข้อดี: ราคาถูก, เร็ว, รองรับภาษาไทยดี</p>"
+      }
+    ],
+    "ai": [
+      {
+        "title": "AI Agents คืออะไร?",
+        "date": "5 มี.ค. 2026",
+        "content": "<p>AI Agents คือ AI ที่ทำงานแทนเราได้</p><p>เช่น สั่งให้ทำงานบางอย่างโดยอัตโนมัติ</p>"
+      },
+      {
+        "title": "Claude vs GPT vs Gemini",
+        "date": "3 มี.ค. 2026",
+        "content": "<p>Claude - เน้นความปลอดภัย</p><p>GPT - เน้น general purpose</p><p>Gemini - เน้น multimodal</p>"
+      }
+    ],
+    "tech": [
+      {
+        "title": "Windows Server 2022 vs Windows 10",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>Server 2022 เหมาะกับการรัน 24/7</p><p>Windows 10 เหมาะกับใช้งานทั่วไป</p>"
+      },
+      {
+        "title": "Obsidian คืออะไร?",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>App เขียนโน้ต + จัดการความรู้</p><p>เน้น text + เชื่อมโยงความคิด</p>"
+      }
+    ],
+    "trading": [
+      {
+        "title": "Windows Server + MT5 + FTMO",
+        "date": "4 มี.ค. 2026",
+        "content": "<p>Windows Server 2022 รองรับ MT5</p><p>ใช้เทรดกับ FTMO ได้เลย</p><p>ต้องการ: Windows 10/11/Server 2019/2022 (64-bit), 4GB RAM</p>"
+      }
+    ]
+  }
+}
