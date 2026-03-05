@@ -23,44 +23,61 @@
         html, body { height: 100%; }
         body { font-family: 'Prompt', sans-serif; background: var(--dark); color: var(--text); overflow: hidden; }
         
-        /* App Container */
-        .app { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+        /* App */
+        .app { height: 100%; display: flex; flex-direction: column; }
         
-        /* Header - Different colors per page */
-        .header { padding: 25px 20px; text-align: center; flex-shrink: 0; transition: 0.3s; }
-        .header.home { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-        .header.learn { background: linear-gradient(135deg, #ec4899, #f472b6); }
-        .header.cron { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-        .header.team { background: linear-gradient(135deg, #10b981, #34d399); }
-        
-        .header-icon { 
-            width: 60px; height: 60px; margin: 0 auto 10px; 
-            background: rgba(255,255,255,0.2); border-radius: 18px; 
-            display: flex; align-items: center; justify-content: center;
-            border: 2px solid rgba(255,255,255,0.3);
+        /* Hero - Beautiful gradient */
+        .hero { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            padding: 35px 20px 25px; text-align: center; flex-shrink: 0; position: relative; overflow: hidden;
         }
-        .header-icon svg { width: 36px; height: 36px; }
-        .header h1 { font-size: 1.4rem; font-weight: 700; }
-        .header .date { display: inline-block; margin-top: 8px; padding: 4px 12px; background: rgba(255,255,255,0.2); border-radius: 15px; font-size: 0.75rem; }
+        .hero::before {
+            content: ''; position: absolute; top: -30%; left: -30%; width: 160%; height: 160%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 50%);
+            animation: shimmer 6s ease-in-out infinite;
+        }
+        @keyframes shimmer { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(10%, 10%); } }
         
-        /* Scroll */
-        .scroll { flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 15px; padding-bottom: 90px; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-icon { 
+            width: 75px; height: 75px; margin: 0 auto 14px; 
+            background: rgba(255,255,255,0.2); border-radius: 22px; 
+            display: flex; align-items: center; justify-content: center;
+            backdrop-filter: blur(10px); border: 3px solid rgba(255,255,255,0.35);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+        }
+        .hero-icon svg { width: 45px; height: 45px; }
+        .hero h1 { font-size: 1.6rem; font-weight: 700; text-shadow: 0 3px 12px rgba(0,0,0,0.35); margin-bottom: 4px; }
+        .hero p { font-size: 0.9rem; opacity: 0.95; font-weight: 400; }
+        .hero .date { 
+            display: inline-block; margin-top: 12px; padding: 6px 16px; 
+            background: rgba(255,255,255,0.25); border-radius: 20px; 
+            font-size: 0.78rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.35);
+        }
+        
+        /* Content */
+        .content { flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 18px; padding-bottom: 95px; }
         
         /* Section */
         .section { margin-bottom: 24px; }
-        .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
         
-        /* Cards */
+        /* Cards - Beautiful */
         .card { 
-            background: var(--dark2); border-radius: 16px; padding: 16px; margin-bottom: 12px; 
-            border-left: 4px solid var(--primary); transition: 0.2s;
+            background: linear-gradient(150deg, var(--dark2), var(--dark3)); 
+            border-radius: 18px; padding: 18px; margin-bottom: 14px; 
+            border-left: 5px solid var(--primary); transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .card:active { transform: scale(0.98); }
-        .card .tag { display: inline-block; padding: 4px 12px; background: var(--primary); border-radius: 12px; font-size: 0.65rem; font-weight: 600; margin-bottom: 10px; }
-        .card h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; }
-        .card .meta { font-size: 0.75rem; color: var(--text2); }
+        .card:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .card .tag { 
+            display: inline-block; padding: 5px 14px; background: var(--primary); 
+            border-radius: 14px; font-size: 0.68rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+        .card .meta { font-size: 0.78rem; color: var(--text2); }
         
-        /* Colors per category */
+        /* Category Colors */
         .card.oc { border-left-color: #6366f1; }
         .card.oc .tag { background: #6366f1; }
         .card.ai { border-left-color: #ec4899; }
@@ -77,39 +94,47 @@
         .err { color: var(--danger); }
         .off { color: var(--text2); }
         
-        /* Bottom Nav */
+        /* Nav */
         .nav { 
             position: fixed; bottom: 0; left: 0; right: 0; 
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px);
-            display: flex; padding: 8px 10px 25px; border-top: 1px solid var(--dark3); 
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(25px);
+            display: flex; padding: 10px 15px 28px; border-top: 1px solid var(--dark3); 
         }
-        .nav-item { flex: 1; text-align: center; padding: 8px; opacity: 0.5; transition: 0.2s; border-radius: 12px; }
+        .nav-item { flex: 1; text-align: center; padding: 10px; opacity: 0.5; transition: 0.2s; border-radius: 14px; }
         .nav-item:active { opacity: 1; }
         .nav-item.active { opacity: 1; }
-        .nav-item .icon { font-size: 22px; display: block; margin-bottom: 2px; }
-        .nav-item span { font-size: 0.7rem; font-weight: 500; }
+        .nav-item .icon { font-size: 24px; display: block; margin-bottom: 3px; }
+        .nav-item span { font-size: 0.72rem; font-weight: 600; }
         
         /* Modal */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 100; overflow-y: auto; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 100; overflow-y: auto; }
         .modal.show { display: block; }
-        .modal-content { padding: 20px; max-width: 500px; margin: 0 auto; }
-        .modal-close { position: fixed; top: 15px; right: 15px; width: 36px; height: 36px; background: var(--dark2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .modal h2 { font-size: 1.3rem; margin-bottom: 8px; }
-        .modal .meta { font-size: 0.8rem; color: var(--text2); margin-bottom: 15px; }
-        .modal .body { font-size: 0.95rem; line-height: 1.7; }
-        .modal .body p { margin-bottom: 12px; }
-        .back { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 0.9rem; margin-bottom: 14px; }
+        .modal-content { padding: 22px; max-width: 520px; margin: 0 auto; }
+        .modal-close { position: fixed; top: 16px; right: 16px; width: 38px; height: 38px; background: var(--dark2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .modal h2 { font-size: 1.35rem; margin-bottom: 10px; }
+        .modal .meta { font-size: 0.82rem; color: var(--text2); margin-bottom: 18px; }
+        .modal .body { font-size: 0.98rem; line-height: 1.8; }
+        .modal .body p { margin-bottom: 14px; }
+        .back { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 0.92rem; margin-bottom: 16px; }
+        
+        /* Icon in card */
+        .card-icon { font-size: 1.3rem; margin-bottom: 6px; }
     </style>
 </head>
 <body>
     <div class="app">
-        <div class="header home" id="header">
-            <div class="header-icon"><svg viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs><circle cx="50" cy="50" r="45" fill="url(#g)"/><text x="50" y="68" font-size="50" text-anchor="middle" fill="white">🦞</text></svg></div>
-            <h1 id="headerTitle">Daily Knowledge</h1>
-            <div class="date" id="date"></div>
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs><circle cx="50" cy="50" r="45" fill="url(#g)"/><text x="50" y="68" font-size="50" text-anchor="middle" fill="white">🦞</text></svg>
+                </div>
+                <h1>Daily Knowledge</h1>
+                <p>ความรู้ใหม่ทุกวัน</p>
+                <div class="date" id="date"></div>
+            </div>
         </div>
         
-        <div class="scroll" id="scroll"></div>
+        <div class="content" id="content"></div>
         
         <nav class="nav">
             <div class="nav-item active" data-page="home"><span class="icon">🏠</span><span>หน้าหลัก</span></div>
@@ -125,9 +150,7 @@
     </div>
 
     <script>
-        const header = document.getElementById('header');
-        const headerTitle = document.getElementById('headerTitle');
-        const scroll = document.getElementById('scroll');
+        const content = document.getElementById('content');
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modalContent');
         
@@ -135,101 +158,94 @@
         
         const data = {
             openclaw: [
-                {title: "OpenClaw v2026.3.2", cat: "oc", content: "<p><strong>🎉 อัปเดตล่าสุด!</strong></p><p>• PDF Analysis Tool - วิเคราะห์ PDF ได้</p><p>• 150+ Bug Fixes</p><p>• Secrets/SecretRef 64 targets</p>"},
-                {title: "วิธีใช้ Minimax", cat: "oc", content: "<p><strong>Minimax</strong> คือโมเดล AI หลักที่ Jarvis ใช้</p><p><strong>✓ ข้อดี:</strong> ราคาถูก, ตอบเร็ว, ภาษาไทยดี</p><p><strong>📊 Model:</strong> M2.5=งานทั่วไป, M2.1=เขียนโค้ด</p>"},
-                {title: "Cron Jobs คือ?", cat: "oc", content: "<p>Cron Jobs = ตารางงานอัตโนมัติ</p><p><strong>งานหลัก:</strong></p><p>• Morning Brief 07:00</p><p>• Midday Insight 10:00</p><p>• Evening Wrap 19:00</p>"}
+                {title: "OpenClaw v2026.3.2", icon: "🦞", cat: "oc", content: "<p><strong>🎉 อัปเดตล่าสุด!</strong></p><p>• <strong>PDF Analysis Tool</strong> - วิเคราะห์ PDF ได้เลย</p><p>• <strong>150+ Bug Fixes</strong> - แก้บักมากมาย</p><p>• <strong>Secrets/SecretRef</strong> - รองรับ 64 targets</p>"},
+                {title: "วิธีใช้ Minimax", icon: "🤖", cat: "oc", content: "<p><strong>Minimax</strong> คือโมเดล AI หลักที่ Jarvis ใช้</p><p><strong>✓ ข้อดี:</strong> ราคาถูก, ตอบเร็ว, ภาษาไทยดี</p><p><strong>📊 Model:</strong> M2.5=งานทั่วไป, M2.1=เขียนโค้ด</p>"},
+                {title: "Cron Jobs", icon: "⏰", cat: "oc", content: "<p>Cron Jobs = ตารางงานอัตโนมัติ</p><p><strong>งานหลัก:</strong></p><p>• Morning Brief 07:00</p><p>• Midday Insight 10:00</p><p>• Evening Wrap 19:00</p>"}
             ],
             ai: [
-                {title: "AI Agents คืออะไร?", cat: "ai", content: "<p><strong>🤖 AI Agents</strong> คือ AI ที่ทำงานแทนเราได้อัตโนมัติ</p><p><strong>💡 ตัวอย่าง:</strong> หาข่าว, ทำรายงาน, จัดการงาน</p>"},
-                {title: "Claude vs GPT vs Gemini", cat: "ai", content: "<p><strong>🔵 Claude:</strong> ความปลอดภัย</p><p><strong>🟢 GPT:</strong> ใช้ง่าย</p><p><strong>🟣 Gemini:</strong> Multimodal</p>"}
+                {title: "AI Agents คือ?", icon: "🤖", cat: "ai", content: "<p><strong>🤖 AI Agents</strong> คือ AI ที่ทำงานแทนเราได้อัตโนมัติ</p><p><strong>💡 ตัวอย่าง:</strong> หาข่าว, ทำรายงาน, จัดการงาน</p><p><strong>🔮 อนาคต:</strong> จะมีบทบาทสำคัญมาก</p>"},
+                {title: "Claude vs GPT vs Gemini", icon: "🧠", cat: "ai", content: "<p><strong>🔵 Claude:</strong> เน้นความปลอดภัย</p><p><strong>🟢 GPT:</strong> ใช้ง่าย มี Plugins</p><p><strong>🟣 Gemini:</strong> เน้น Multimodal</p>"}
             ],
             tech: [
-                {title: "Windows Server vs 10", cat: "tech", content: "<p><strong>Server 2022:</strong> เสถียรสูง รัน 24/7</p><p><strong>Windows 10/11:</strong> ใช้ง่าย ถูกกว่า</p>"},
-                {title: "Obsidian", cat: "tech", content: "<p><strong>📝 App เขียนโน้ต</strong></p><p>เน้น Text + เชื่อมโยงความคิด</p><p>ฟรีสำหรับใช้งานส่วนตัว!</p>"}
+                {title: "Windows Server vs 10", icon: "💻", cat: "tech", content: "<p><strong>🖥️ Server 2022:</strong> เสถียรสูง รัน 24/7</p><p><strong>🖥️ Windows 10/11:</strong> ใช้ง่าย ถูกกว่า</p>"},
+                {title: "Obsidian", icon: "📝", cat: "tech", content: "<p><strong>📝 App เขียนโน้ต</strong> + จัดการความรู้</p><p>เน้น Text + เชื่อมโยงความคิด</p><p>ฟรีสำหรับใช้งานส่วนตัว!</p>"}
             ],
             trading: [
-                {title: "Windows + MT5 + FTMO", cat: "trade", content: "<p><strong>✅ ใช้ได้!</strong></p><p>Server 2022 รัน MT5 เทรด FTMO ได้</p><p><strong>ความต้องการ:</strong> RAM 4GB+, CPU 2 cores+</p>"}
+                {title: "Windows + MT5 + FTMO", icon: "📈", cat: "trade", content: "<p><strong>✅ ใช้ได้!</strong></p><p>Server 2022 รัน MT5 เทรด FTMO ได้เลย</p><p><strong>📋 ความต้องการ:</strong> RAM 4GB+, CPU 2 cores+</p><p><strong>⚠️ หมายเหตุ:</strong> Windows 7 ไม่รองรับ MT5 แล้ว!</p>"}
             ],
             meeting: [
-                {title: "Knowledge App", cat: "meet", content: "<p><strong>🎯 สร้าง App</strong> สำหรับดูความรู้</p><p><strong>✅ ทำแล้ว:</strong> HTML/CSS/JS, GitHub Pages</p><p><strong>📱</strong> basssg.github.io/daily-knowledge</p>"},
-                {title: "Task Tracker", cat: "meet", content: "<p><strong>Google Sheet:</strong> Jarvis Task Tracker</p><p><strong>ID:</strong> 1sJKYdfkBPoHg4LC5ZMp0NxHy5ffcEjN25CSpevogK8s</p><p><strong>Tabs:</strong> Summary, In Progress, Completed</p>"}
+                {title: "Knowledge App", icon: "📱", cat: "meet", content: "<p><strong>🎯 สร้าง App</strong> สำหรับดูความรู้ใหม่ทุกวัน</p><p><strong>✅ ทำแล้ว:</strong> HTML/CSS/JS, GitHub Pages</p><p><strong>📱 Link:</strong> basssg.github.io/daily-knowledge</p>"},
+                {title: "Task Tracker", icon: "📋", cat: "meet", content: "<p><strong>Google Sheet:</strong> Jarvis Task Tracker</p><p><strong>ID:</strong> 1sJKYdfkBPoHg4LC5ZMp0NxHy5ffcEjN25CSpevogK8s</p><p><strong>Tabs:</strong> Summary, In Progress, Completed</p>"}
             ]
         };
         
-        const pageInfo = {
-            home: { title: "⚡ แนะนำ", color: "home", icon: "🦞" },
-            learn: { title: "📚 หมวดหมู่", color: "learn", icon: "📚" },
-            cron: { title: "⏰ ตารางงาน", color: "cron", icon: "⏰" },
-            team: { title: "👥 ทีม & ประวัติ", color: "team", icon: "👥" }
-        };
-        
-        // Render Home
+        // Render Home - Beautiful
         function renderHome() {
-            setHeader('home');
-            scroll.innerHTML = `
+            content.innerHTML = `
                 <div class="section">
-                    <div class="section-title">⚡ แนะนำวันนี้</div>
-                    ${renderCard('openclaw', data.openclaw[0])}
-                    ${renderCard('ai', data.ai[0])}
+                    <div class="section-title">🦞 OpenClaw</div>
+                    ${data.openclaw.slice(0,1).map(i => card(i, 'openclaw')).join('')}
                 </div>
                 <div class="section">
-                    <div class="section-title">📈 Trading</div>
-                    ${renderCard('trading', data.trading[0])}
+                    <div class="section-title">🤖 AI ล่าสุด</div>
+                    ${data.ai.slice(0,1).map(i => card(i, 'ai')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">💻 Tech</div>
-                    ${renderCard('tech', data.tech[0])}
+                    ${data.tech.slice(0,1).map(i => card(i, 'tech')).join('')}
+                </div>
+                <div class="section">
+                    <div class="section-title">📈 Trading</div>
+                    ${data.trading.slice(0,1).map(i => card(i, 'trade')).join('')}
                 </div>
             `;
         }
         
-        // Render Learn
+        // Render Learn - All
         function renderLearn() {
-            setHeader('learn');
-            scroll.innerHTML = `
+            content.innerHTML = `
                 <div class="section">
                     <div class="section-title">🦞 OpenClaw</div>
-                    ${data.openclaw.map(i => renderCard('openclaw', i)).join('')}
+                    ${data.openclaw.map(i => card(i, 'openclaw')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">🤖 AI</div>
-                    ${data.ai.map(i => renderCard('ai', i)).join('')}
+                    ${data.ai.map(i => card(i, 'ai')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">💻 Tech</div>
-                    ${data.tech.map(i => renderCard('tech', i)).join('')}
+                    ${data.tech.map(i => card(i, 'tech')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">📈 Trading</div>
-                    ${data.trading.map(i => renderCard('trade', i)).join('')}
+                    ${data.trading.map(i => card(i, 'trade')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">📋 การประชุม</div>
-                    ${data.meeting.map(i => renderCard('meet', i)).join('')}
+                    ${data.meeting.map(i => card(i, 'meet')).join('')}
                 </div>
             `;
         }
         
         // Render Cron
         function renderCron() {
-            setHeader('cron');
             const jobs = [
-                {name: "Morning Brief", time: "07:00", status: "ok"},
-                {name: "Midday Insight", time: "10:00", status: "ok"},
-                {name: "Evening Wrap", time: "19:00", status: "ok"},
-                {name: "Daily News", time: "06:30", status: "ok"},
-                {name: "Backup", time: "ทุก 8 ชม.", status: "ok"},
-                {name: "Price Alert", time: "ทุกชม.", status: "off"}
+                {name: "Morning Brief", time: "07:00", status: "ok", icon: "🌅"},
+                {name: "Midday Insight", time: "10:00", status: "ok", icon: "☀️"},
+                {name: "Evening Wrap", time: "19:00", status: "ok", icon: "🌆"},
+                {name: "Daily News", time: "06:30", status: "ok", icon: "📰"},
+                {name: "Backup", time: "ทุก 8 ชม.", status: "ok", icon: "💾"},
+                {name: "Price Alert", time: "ทุกชม.", status: "off", icon: "🔔"}
             ];
             
-            scroll.innerHTML = `
+            content.innerHTML = `
                 <div class="section">
-                    <div class="section-title">⏰ Cron Jobs</div>
+                    <div class="section-title">⏰ ตารางงาน</div>
                     ${jobs.map(j => `
                         <div class="card oc">
-                            <div class="meta" style="margin-bottom:4px">🕐 ${j.time}</div>
+                            <div class="card-icon">${j.icon}</div>
                             <h3>${j.name}</h3>
-                            <div class="meta"><span class="${j.status === 'ok' ? 'ok' : 'off'}">${j.status === 'ok' ? '✅ ทำงาน' : '⛔ ปิด'}</span></div>
+                            <div class="meta">🕐 ${j.time} &nbsp;|&nbsp; <span class="${j.status === 'ok' ? 'ok' : 'off'}">${j.status === 'ok' ? '✅ ทำงาน' : '⛔ ปิด'}</span></div>
                         </div>
                     `).join('')}
                 </div>
@@ -238,48 +254,42 @@
         
         // Render Team
         function renderTeam() {
-            setHeader('team');
             const history = [
-                {job: "Morning Brief", time: "07:00", status: "ok", result: "XAUUSD $5,171"},
-                {job: "Evening Wrap", time: "19:00", status: "ok", result: "สรุปตลาด"},
-                {job: "News Focus", time: "14:00", status: "err", result: "❌ Failed"},
-                {job: "Backup", time: "03:00", status: "ok", result: "เสร็จ"}
+                {job: "Morning Brief", time: "07:00", status: "ok", result: "XAUUSD $5,171", icon: "🌅"},
+                {job: "Evening Wrap", time: "19:00", status: "ok", result: "สรุปตลาด", icon: "🌆"},
+                {job: "News Focus", time: "14:00", status: "err", result: "❌ Failed", icon: "📰"},
+                {job: "Backup", time: "03:00", status: "ok", result: "เสร็จ", icon: "💾"}
             ];
             
-            scroll.innerHTML = `
+            content.innerHTML = `
                 <div class="section">
-                    <div class="section-title">📋 การประชุมล่าสุด</div>
-                    ${data.meeting.map(i => renderCard('meet', i)).join('')}
+                    <div class="section-title">📋 การประชุม</div>
+                    ${data.meeting.map(i => card(i, 'meet')).join('')}
                 </div>
                 <div class="section">
                     <div class="section-title">📊 ประวัติงาน</div>
                     ${history.map(h => `
                         <div class="card oc">
-                            <div class="meta">🕐 ${h.time}</div>
+                            <div class="card-icon">${h.icon}</div>
                             <h3>${h.job}</h3>
-                            <div class="meta"><span class="${h.status === 'ok' ? 'ok' : 'err'}">${h.status === 'ok' ? '✅' : '❌'}</span> ${h.result}</div>
+                            <div class="meta">🕐 ${h.time} &nbsp;|&nbsp; <span class="${h.status === 'ok' ? 'ok' : 'err'}">${h.status === 'ok' ? '✅' : '❌'}</span> ${h.result}</div>
                         </div>
                     `).join('')}
                 </div>
             `;
         }
         
-        function setHeader(page) {
-            header.className = 'header ' + pageInfo[page].color;
-            headerTitle.textContent = pageInfo[page].title;
-        }
-        
-        function renderCard(cat, item) {
-            return `<div class="card ${cat}" onclick="showModal('${cat}', '${item.title.replace(/'/g, "\\'")}')">
-                <span class="tag">${item.title}</span>
-                <div class="meta">คลิกเพื่ออ่าน →</div>
+        function card(item, cat) {
+            return `<div class="card ${cat}" onclick="show('${cat}', '${item.title.replace(/'/g, "\\'")}')">
+                <span class="tag">${item.icon} ${item.title}</span>
+                <div class="meta" style="margin-top:8px">คลิกเพื่ออ่าน →</div>
             </div>`;
         }
         
-        function showModal(cat, title) {
+        function show(cat, title) {
             const item = data[cat]?.find(i => i.title === title);
             if (!item) return;
-            modalContent.innerHTML = `<h2>${item.title}</h2><div class="body">${item.content}</div>`;
+            modalContent.innerHTML = `<h2>${item.icon} ${item.title}</h2><div class="body">${item.content}</div>`;
             modal.classList.add('show');
         }
         
@@ -289,11 +299,11 @@
             item.addEventListener('click', function() {
                 document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
-                const page = this.dataset.page;
-                if (page === 'home') renderHome();
-                else if (page === 'learn') renderLearn();
-                else if (page === 'cron') renderCron();
-                else if (page === 'team') renderTeam();
+                const p = this.dataset.page;
+                if (p === 'home') renderHome();
+                else if (p === 'learn') renderLearn();
+                else if (p === 'cron') renderCron();
+                else if (p === 'team') renderTeam();
             });
         });
         
