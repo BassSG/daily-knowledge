@@ -2,6 +2,11 @@
   "articles": {
     "openclaw": [
       {
+        "title": "OpenClaw พลิกโฉม! ทะลุ 250,000 GitHub Stars",
+        "date": "8 มี.ค. 2026",
+        "content": "<p><strong>🎉 ยิ่งใหญ่!</strong> OpenClaw มี GitHub Stars มากกว่า React แล้ว!</p><p><strong>250,000 Stars</strong> - เกิน React เป็นครั้งแรก</p><p><strong>Managed Deployment</strong> - Platform รองรับ deployment ง่ายขึ้น</p>"
+      },
+      {
         "title": "OpenClaw v2026.3.2 มีอะไรใหม่?",
         "date": "5 มี.ค. 2026",
         "content": "<p><strong>PDF Analysis Tool</strong> - วิเคราะห์ PDF ได้เลย</p><p><strong>150+ Bug Fixes</strong> - แก้บักมากมาย</p><p><strong>Secrets/SecretRef</strong> - รองรับ 64 targets</p>"
@@ -24,6 +29,11 @@
     ],
     "ai": [
       {
+        "title": "OpenAI เปิดตัว GPT-5 มาพร้อม Reasoning ที่ดีขึ้น",
+        "date": "8 มี.ค. 2026",
+        "content": "<p><strong>🤖 GPT-5</strong> มาพร้อม native tool use และ extended reasoning</p><p><strong>สำคัญ:</strong> สามารถใช้ browser, code interpreter ได้ในตัว</p><p><strong>ความเร็ว:</strong> เร็วกว่า GPT-4 3 เท่า</p>"
+      },
+      {
         "title": "AI Agents คืออะไร?",
         "date": "5 มี.ค. 2026",
         "content": "<p>AI Agents คือ AI ที่ทำงานแทนเราได้</p><p>เช่น สั่งให้ทำงานบางอย่างโดยอัตโนมัติ</p>"
@@ -40,6 +50,11 @@
       }
     ],
     "tech": [
+      {
+        "title": "Edge Computing คืออะไร? ทำไมถึงสำคัญ",
+        "date": "8 มี.ค. 2026",
+        "content": "<p><strong>⚡ Edge Computing</strong> - ประมวลผลข้อมูลใกล้แหล่งที่มากกว่า Cloud</p><p><strong>ข้อดี:</strong> latency ต่ำ, ประหยัด bandwidth, data privacy ดีกว่า</p><p><strong>ใช้กับ:</strong> IoT, Autonomous vehicles, Real-time analytics</p>"
+      },
       {
         "title": "Windows Server 2022 + MT5 + FTMO",
         "date": "5 มี.ค. 2026",
@@ -69,6 +84,16 @@
       }
     ],
     "system": [
+      {
+        "title": "Knowledge App: Cron Job อัปเดตอัตโนมัติ",
+        "date": "8 มี.ค. 2026",
+        "content": "<p>⏰ <strong>อัปเดตอัตโนมัติ</strong> ทุกวันเวลา 23:30 น.</p><p><strong>Cron Job:</strong> knowledge-daily-001</p><p>ทำหน้าที่อัปเดตความรู้ใหม่ลง Knowledge App</p><p>รันบน OpenClaw Runtime</p>"
+      },
+      {
+        "title": "Knowledge App อัปเดตทุกวัน",
+        "date": "8 มี.ค. 2026",
+        "content": "<p>📚 ความรู้ใหม่ทุกวัน!</p><p>Knowledge App จะอัปเดตข้อมูลประจำวันเวลา 23:30 น.</p><p>หัวข้อ: OpenClaw, AI, Tech, Trading, System</p>"
+      },
       {
         "title": "CORE Authority Protocol",
         "date": "2 มี.ค. 2026",
